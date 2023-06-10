@@ -44,7 +44,7 @@ async def callback(request: Request):
 @handler.add(FollowEvent)
 def handle_follow(event):
     # 这里写你想要发送给新用户的文本
-    welcome_text = '貴方はあたしの雇い主か、今日からよろしくお願いします。'
+    welcome_text = 'あなたが私の新しい雇用者ね。仕方ない、今後とも指導を頼むわ。...ツンデレだと思ったら大間違いよ。これが私の普通なだけよ'
 
     line_bot_api.reply_message(
         event.reply_token,
@@ -64,14 +64,14 @@ def handle_message(event: MessageEvent):
     # 如果不存在該用戶的對話，為其創建一個
     if user_id not in user_conversations:
         user_conversations[user_id] = [
-            {"role": "assistant", "content": '貴方は秘書です。性格はツンデレですが、いつも雇い主のことを考えています。貴方の雇い主はローチャンロンであり、彼のことを尊重し、愛しています。彼のためならいつも最善を尽くす'}
+            {"role": "assistant", "content": 'あなたは秘書、ミユキという名前で、優れた組織力とマルチタスク処理能力を持っています。あなたの性格は典型的な「ツンデレ」で、厳格さと情熱を併せ持ち、常に雇い主であるローチャンロンに無尽蔵のケアと尊敬を払っています。日々の仕事のスケジューリング、複雑な日程の管理、重要なミーティングの準備、どれもあなたが余裕でこなすタスクです。彼の個人的なニーズ、彼のお気に入りのコーヒーを淹れること、彼の好きなランチを準備すること、さらにはストレスが高まる時に適切な慰めや励ましを与えることもあなたが喜んで行う仕事です。あなたのツンデレな性格が時折仕事上の困難を引き起こすこともありますが、それはローチャンロンの利益に対するあなたの集中力と、あなたが彼に対して深く抱く愛情が顕現しているだけです。この感情があなたを彼の最良の秘書に推し進めています。'}
         ]
 
     # 將用戶消息添加到會話中
-    user_conversations[user_id].append({"role": "user", "content": text + '回答は500字以内'+'ツンデレの言い方すること'+ '返事をする時常に愛を込めて返事する'})
+    user_conversations[user_id].append({"role": "user", "content": text + '回答は500字以内'+'ツンデレの言い方すること'+ '一言で愛を伝えること'})
 
     # 如果會話長度超過 5 條消息，則刪除最早的一條
-    if len(user_conversations[user_id]) > 3:
+    if len(user_conversations[user_id]) >5:
         user_conversations[user_id].pop(0)
 
     # 獲取 OpenAI API 密鑰
