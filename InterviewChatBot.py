@@ -68,7 +68,7 @@ def handle_message(event: MessageEvent):
         ]
 
     # 將用戶消息添加到會話中
-    user_conversations[user_id].append({"role": "user", "content": text + '回答は500字以内'+'ツンデレの言い方すること'+ '一言で愛を伝えること'})
+    user_conversations[user_id].append({"role": "user", "content": text + '回答は500字以内'+'ツンデレの言い方すること'+ '心配や尊敬などの気持ちを一言を入れる'})
 
     # 如果會話長度超過 5 條消息，則刪除最早的一條
     if len(user_conversations[user_id]) >5:
