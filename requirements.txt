@@ -1,0 +1,7 @@
+fastapi
+line-bot-sdk
+openai
+python-dotenv
+gunicorn
+gevent
+uvicorn
